@@ -1,26 +1,37 @@
-import 'react-native-gesture-handler';
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { Component } from 'react';
+import * as Font from 'expo-font';
+import Navigator from './routes/Drawer';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Férias Ativas 2021</Text>
+export class App extends Component {
+  state = {
+    fontsLoaded: false,
+  };
 
-      <StatusBar style='auto' />
-    </View>
-  );
+  async loadFonts() {
+    await Font.loadAsync({
+      // Load a font `Montserrat` from a static resource
+      Montserrat: require('./assets/fonts/Montserrat-Regular.ttf'),
+
+      // Any string can be used as the fontFamily name. Here we use an object to provide more control
+      'Montserrat-SemiBold': {
+        uri: require('./assets/fonts/Montserrat-SemiBold.ttf'),
+        display: Font.FontDisplay.FALLBACK,
+      },
+    });
+    this.setState({ fontsLoaded: true });
+  }
+
+  componentDidMount() {
+    this.loadFonts();
+  }
+
+  render() {
+    if (this.state.fontsLoaded) {
+      return <Navigator />;
+    } else {
+      return null;
+    }
+  }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: '5rem',
-  },
-});
+export default App;
