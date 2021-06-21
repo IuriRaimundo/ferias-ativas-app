@@ -4,12 +4,22 @@ export const globalStyles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
+    elevation: 10,
   },
   text: {
     fontFamily: 'Montserrat',
   },
-  h1: {
+  largeText: {
     fontFamily: 'Montserrat-SemiBold',
-    fontSize: 20,
+    fontSize: 30,
+  },
+  mediumText: {
+    fontFamily: 'Montserrat',
+    fontSize: 18,
   },
 });
+
+export const headerStyle = {
+  backgroundColor: '#fff',
+  height: 100,
+};

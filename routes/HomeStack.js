@@ -1,32 +1,30 @@
 import React, { Component } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import Atividades from '../screens/Atividades';
-import Atividade from '../screens/Atividade';
 import Header from '../components/header';
+import Home from '../screens/Home';
 import { headerStyle } from '../styles/globalStyles';
 
 const Stack = createStackNavigator();
 
-class AtividadesStack extends Component {
+class HomeStack extends Component {
   render() {
     return (
       <Stack.Navigator
-        initialRouteName='Atividades'
+        initialRouteName='Home'
         screenOptions={{
           headerStyle,
         }}
       >
         <Stack.Screen
-          name='Atividades'
-          component={Atividades}
+          name='Home'
+          component={Home}
           options={({ navigation, route }) => {
             return { headerTitle: () => <Header navigation={navigation} /> };
           }}
         />
-        <Stack.Screen name='Atividade' component={Atividade} />
       </Stack.Navigator>
     );
   }
 }
 
-export default AtividadesStack;
+export default HomeStack;

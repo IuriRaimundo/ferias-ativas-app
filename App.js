@@ -9,10 +9,7 @@ export class App extends Component {
 
   async loadFonts() {
     await Font.loadAsync({
-      // Load a font `Montserrat` from a static resource
       Montserrat: require('./assets/fonts/Montserrat-Regular.ttf'),
-
-      // Any string can be used as the fontFamily name. Here we use an object to provide more control
       'Montserrat-SemiBold': {
         uri: require('./assets/fonts/Montserrat-SemiBold.ttf'),
         display: Font.FontDisplay.FALLBACK,

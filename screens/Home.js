@@ -1,15 +1,40 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import { StyleSheet, Text, ScrollView, ImageBackground } from 'react-native';
 import { globalStyles } from '../styles/globalStyles';
+import LinearGradient from '../components/LinearGradient';
+import Card from '../components/Card';
+import imagemAtividades from '../assets/cartão-atividades.jpg';
+import imagemRegulamento from '../assets/cartão-regulamento.jpg';
 
 export class Home extends Component {
   render() {
     return (
-      <View style={globalStyles.container}>
-        <Text style={globalStyles.h1}>Página Inicial</Text>
-      </View>
+      <ImageBackground source={require('../assets/fundo.jpg')} style={styles.backgroundImage}>
+        <LinearGradient />
+        <ScrollView style={globalStyles.container}>
+          <Card image={imagemAtividades}>
+            <Text style={{ ...globalStyles.largeText, ...styles.text }}>Atividades</Text>
+            <Text style={{ ...globalStyles.mediumText, ...styles.text }}>Veja as atividades programadas</Text>
+          </Card>
+          <Card image={imagemRegulamento}>
+            <Text style={{ ...globalStyles.largeText, ...styles.text }}>Regulamento</Text>
+            <Text style={{ ...globalStyles.mediumText, ...styles.text }}>Veja o regulamento das Férias Ativas</Text>
+          </Card>
+        </ScrollView>
+      </ImageBackground>
     );
   }
 }
 
+const styles = StyleSheet.create({
+  backgroundImage: {
+    flex: 1,
+    resizeMode: 'cover',
+    justifyContent: 'center',
+  },
+  text: {
+    color: '#fff',
+    paddingVertical: 10,
+  },
+});
 export default Home;
