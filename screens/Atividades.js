@@ -1,16 +1,35 @@
 import React, { Component } from 'react';
-import { Text, View, Button } from 'react-native';
-import { globalStyles } from '../styles/globalStyles';
+import { StyleSheet, View, FlatList } from 'react-native';
+import content from '../assets/atividades/atividades';
+import ActivityCard from '../components/ActivityCard';
 
 export class Atividades extends Component {
   render() {
+    const { navigation, route } = this.props;
     return (
-      <View style={globalStyles.container}>
-        <Text style={globalStyles.h1}>Página de Atividades</Text>
-        <Button title='Atividade' onPress={() => this.props.navigation.navigate('Atividade')} />
+      <View style={styles.container}>
+        <FlatList
+          columnWrapperStyle={styles.list}
+          data={content}
+          numColumns={2}
+          keyExtractor={(item) => item.dia}
+          renderItem={({ item }) => {
+            return <ActivityCard activity={item} navigation={navigation} />;
+          }}
+        />
       </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
+  list: {
+    justifyContent: 'center',
+  },
+});
 
 export default Atividades;

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, View } from 'react-native';
 
-export default class LinearGradient extends Component {
+export default class Overlay extends Component {
   render() {
     return <View style={styles.linearGradient}></View>;
   }
@@ -10,9 +10,9 @@ export default class LinearGradient extends Component {
 const styles = StyleSheet.create({
   linearGradient: {
     position: 'absolute',
-    height: '100%',
-    width: '100%',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    width: 1000,
+    height: 1000,
+    backgroundColor: 'rgba(0, 0, 0, 0.4)',
     elevation: 1,
   },
 });

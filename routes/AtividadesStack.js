@@ -23,7 +23,9 @@ class AtividadesStack extends Component {
             return { headerTitle: () => <Header navigation={navigation} /> };
           }}
         />
-        <Stack.Screen name='Atividade' component={Atividade} />
+        <Stack.Screen name='Atividade' component={Atividade} options={({route}) => {
+          return { headerTitle: 'Atividades de ' + route.params.dia }
+          }}/>
       </Stack.Navigator>
     );
   }

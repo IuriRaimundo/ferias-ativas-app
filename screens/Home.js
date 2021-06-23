@@ -1,39 +1,55 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, ScrollView, ImageBackground } from 'react-native';
+import { StyleSheet, Text, ScrollView, View } from 'react-native';
 import { globalStyles } from '../styles/globalStyles';
-import LinearGradient from '../components/LinearGradient';
 import Card from '../components/Card';
 import imagemAtividades from '../assets/cartão-atividades.jpg';
 import imagemRegulamento from '../assets/cartão-regulamento.jpg';
+import imagemFériasAtivas from '../assets/cartão-férias-ativas.jpg';
 
 export class Home extends Component {
   render() {
+    const { navigation } = this.props;
     return (
-      <ImageBackground source={require('../assets/fundo.jpg')} style={styles.backgroundImage}>
-        <LinearGradient />
-        <ScrollView style={globalStyles.container}>
-          <Card image={imagemAtividades}>
+      <View style={styles.container}>
+        <ScrollView showsVerticalScrollIndicator={false}>
+          <Card target='Atividades' image={imagemAtividades} navigation={navigation}>
             <Text style={{ ...globalStyles.largeText, ...styles.text }}>Atividades</Text>
             <Text style={{ ...globalStyles.mediumText, ...styles.text }}>Veja as atividades programadas</Text>
           </Card>
-          <Card image={imagemRegulamento}>
+          <Card target='Regulamento' image={imagemRegulamento} navigation={navigation}>
             <Text style={{ ...globalStyles.largeText, ...styles.text }}>Regulamento</Text>
             <Text style={{ ...globalStyles.mediumText, ...styles.text }}>Veja o regulamento das Férias Ativas</Text>
           </Card>
+          <Card
+            target='https://pemoiseshotmail.github.io/feriasemalcanena/'
+            image={imagemFériasAtivas}
+            overlay={true}
+            navigation={navigation}
+          >
+            <Text style={{ ...globalStyles.largeText, ...styles.text }}>Férias Ativas</Text>
+            <Text style={{ ...globalStyles.mediumText, ...styles.text }}>Consulte o website para saber mais</Text>
+          </Card>
+          <Card
+            target='https://pemoiseshotmail.github.io/feriasemalcanena/'
+            image={imagemFériasAtivas}
+            overlay={true}
+            navigation={navigation}
+          >
+            <Text style={{ ...globalStyles.largeText, ...styles.text }}>Recados</Text>
+            <Text style={{ ...globalStyles.mediumText, ...styles.text }}>Recados para os participantes</Text>
+          </Card>
         </ScrollView>
-      </ImageBackground>
+      </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  backgroundImage: {
-    flex: 1,
-    resizeMode: 'cover',
-    justifyContent: 'center',
+  container: {
+    paddingHorizontal: 20,
+    backgroundColor: '#fafafa',
   },
   text: {
-    color: '#fff',
     paddingVertical: 10,
   },
 });
