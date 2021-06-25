@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, FlatList } from 'react-native';
+import Loading from '../components/Loading';
 import AppContext from '../utils/AppContext';
 import ActivityCard from '../components/ActivityCard';
 
@@ -11,7 +12,7 @@ export class Atividades extends Component {
     const { atividades } = this.context;
     return (
       <View style={styles.container}>
-        {atividades.length !== 0 && (
+        {atividades.length !== 0 ? (
           <FlatList
             columnWrapperStyle={styles.list}
             data={atividades}
@@ -21,6 +22,8 @@ export class Atividades extends Component {
               return <ActivityCard activity={item} navigation={navigation} />;
             }}
           />
+        ) : (
+          <Loading />
         )}
       </View>
     );
@@ -30,6 +33,7 @@ export class Atividades extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent: 'center',
     backgroundColor: '#fafafa',
   },
   list: {

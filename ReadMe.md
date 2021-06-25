@@ -8,6 +8,8 @@
 
 **routes** -> Navigators, componentes responsáveis pela navegaçã da aplicação
 
+**utils** -> funções e context API
+
 **app.json** -> Configurações
 
 **styles** -> Estilos globais

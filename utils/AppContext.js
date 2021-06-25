@@ -11,14 +11,18 @@ class AppContextProvider extends Component {
   };
 
   setRecados = () => {
-    this.setState((prevState) => ({ ...prevState, recados: recados }));
+    setTimeout(() => {
+      this.setState((prevState) => ({ ...prevState, recados: recados }));
+    }, 3000);
     /*     request('GET', 'recados').then((result) => {
       this.setState((prevState) => ({ ...prevState, recados: result }));
     }); */
   };
 
   setAtividades = () => {
-    this.setState((prevState) => ({ ...prevState, atividades: atividades }));
+    setTimeout(() => {
+      this.setState((prevState) => ({ ...prevState, atividades: atividades }));
+    }, 3000);
     /*     request('GET', 'atividades').then((result) => {
       this.setState((prevState) => ({ ...prevState, atividades: result }));
     }); */

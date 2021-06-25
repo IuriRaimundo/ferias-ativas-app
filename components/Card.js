@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import { StyleSheet, TouchableOpacity, ImageBackground } from 'react-native';
+import { StyleSheet, TouchableOpacity, ImageBackground, Text } from 'react-native';
 import * as WebBrowser from 'expo-web-browser';
+import { globalStyles } from '../styles/globalStyles';
 import Overlay from './Overlay';
 
 class Card extends Component {
-  constructor({ image, children, target, navigation, overlay }) {
+  constructor({ image, text, target, navigation, overlay }) {
     super();
     this.image = image;
-    this.children = children;
+    this.text = text;
     this.target = target;
     this.navigation = navigation;
     this.overlay = overlay;
@@ -21,21 +22,12 @@ class Card extends Component {
     }
   };
 
-  renderChildren() {
-    if (Array.isArray(this.children)) {
-      return this.children.map((children, key) => {
-        return React.cloneElement(children, { style: { ...styles.cardChildren, ...children.props.style }, key: key });
-      });
-    } else {
-      return React.cloneElement(this.children, { style: { ...styles.cardChildren, ...this.children.props.style } });
-    }
-  }
-
   render() {
     return (
       <TouchableOpacity onPress={this.pressHandler}>
         <ImageBackground source={this.image} style={styles.card}>
-          {this.renderChildren()}
+          <Text style={{ ...globalStyles.largeText, ...styles.text }}>{this.text[0]}</Text>
+          <Text style={{ ...globalStyles.mediumText, ...styles.text }}>{this.text[1]}</Text>
           {this.overlay && <Overlay />}
         </ImageBackground>
       </TouchableOpacity>
@@ -52,9 +44,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#212931',
     overflow: 'hidden',
   },
-  cardChildren: {
-    elevation: 10,
+  text: {
+    paddingVertical: 10,
     color: '#fff',
+    elevation: 10,
   },
 });
 

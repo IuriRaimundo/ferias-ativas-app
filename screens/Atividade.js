@@ -1,43 +1,17 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, ScrollView, Image } from 'react-native';
 import ActivityBody from '../components/ActivityBody';
 import images from '../assets/images/atividades';
+import StackScreenTemplate from '../components/StackScreenTemplate';
 
 export class Atividade extends Component {
   render() {
     const { route } = this.props;
     return (
-      <View style={{ flex: 1 }}>
-        <Image style={styles.image} source={images[route.params.imagem]} />
-        <View style={styles.scrollViewWrapper}>
-          <ScrollView contentContainerStyle={styles.body}>
-            <ActivityBody data={route.params} />
-          </ScrollView>
-        </View>
-      </View>
+      <StackScreenTemplate source={images[route.params.imagem]}>
+        <ActivityBody data={route.params} />
+      </StackScreenTemplate>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  image: {
-    height: 170,
-    width: '100%',
-  },
-  scrollViewWrapper: {
-    flex: 1,
-    backgroundColor: '#fff',
-    overflow: 'hidden',
-    position: 'relative',
-    top: -10,
-    borderTopLeftRadius: 10,
-    borderTopRightRadius: 10,
-  },
-  body: {
-    width: '100%',
-    padding: 20,
-    borderTopLeftRadius: 10,
-    borderTopRightRadius: 10,
-  },
-});
 export default Atividade;

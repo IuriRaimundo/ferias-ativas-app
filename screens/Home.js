@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, ScrollView, View } from 'react-native';
-import { globalStyles } from '../styles/globalStyles';
+import { StyleSheet, ScrollView, View } from 'react-native';
 import AppContext from '../utils/AppContext';
 import Card from '../components/Card';
 import LatestRecadoCard from '../components/LastestRecadoCard';
@@ -19,31 +18,35 @@ export class Home extends Component {
       <View style={styles.container}>
         <ScrollView showsVerticalScrollIndicator={false}>
           {recados.length !== 0 && <LatestRecadoCard data={recados[0]} navigation={navigation} />}
-          <Card target='Atividades' image={imagemAtividades} navigation={navigation}>
-            <Text style={{ ...globalStyles.largeText, ...styles.text }}>Atividades</Text>
-            <Text style={{ ...globalStyles.mediumText, ...styles.text }}>Veja as atividades programadas</Text>
-          </Card>
-          <Card target='Recados' image={imagemFériasAtivas} overlay={true} navigation={navigation}>
-            <Text style={{ ...globalStyles.largeText, ...styles.text }}>Recados</Text>
-            <Text style={{ ...globalStyles.mediumText, ...styles.text }}>Recados para os participantes</Text>
-          </Card>
+          <Card
+            target='Atividades'
+            image={imagemAtividades}
+            navigation={navigation}
+            text={['Atividades', 'Veja as atividades programadas']}
+          />
+
+          <Card
+            target='Recados'
+            image={imagemFériasAtivas}
+            overlay={true}
+            navigation={navigation}
+            text={['Recados', 'Recados para os participantes']}
+          />
+
           <Card
             target='https://pemoiseshotmail.github.io/feriasemalcanena/'
             image={imagemFériasAtivas}
             overlay={true}
             navigation={navigation}
-          >
-            <Text style={{ ...globalStyles.largeText, ...styles.text }}>Férias Ativas</Text>
-            <Text style={{ ...globalStyles.mediumText, ...styles.text }}>Consulte o website para saber mais</Text>
-          </Card>
+            text={['Férias ativas', 'Consulte o webstie para saber mais']}
+          />
+
           <Card
             target='https://pemoiseshotmail.github.io/feriasemalcanena/regulamento'
             image={imagemRegulamento}
             navigation={navigation}
-          >
-            <Text style={{ ...globalStyles.largeText, ...styles.text }}>Regulamento</Text>
-            <Text style={{ ...globalStyles.mediumText, ...styles.text }}>Veja o regulamento das Férias Ativas</Text>
-          </Card>
+            text={['Regulamento', 'Veja o regulamento das Férias Ativas']}
+          />
         </ScrollView>
       </View>
     );
@@ -55,8 +58,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     backgroundColor: '#fafafa',
   },
-  text: {
-    paddingVertical: 10,
-  },
 });
+
 export default Home;
