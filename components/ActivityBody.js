@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { globalStyles } from '../styles/globalStyles';
-import { MaterialIcons } from '@expo/vector-icons';
+import ActivityDetails from './ActivityDetails';
 import ActivitiesList from './ActivitiesList';
 
 export class ActivityBody extends Component {
@@ -9,26 +9,11 @@ export class ActivityBody extends Component {
     const { data } = this.props;
     return (
       <View>
-        <Text style={globalStyles.largeText}>Atividades da manhã</Text>
-        <View style={styles.details}>
-          <View
-            style={{
-              ...styles.iconView,
-              ...{
-                borderBottomColor: 'rgba(0, 0, 0, 0.12)',
-                borderBottomWidth: 1,
-              },
-            }}
-          >
-            <MaterialIcons name='access-time' size={30} color='coral' />
-            <Text style={styles.iconViewText}>{data.hora}</Text>
-          </View>
-          <View style={styles.iconView}>
-            <MaterialIcons name='location-on' size={30} color='coral' />
-            <Text style={styles.iconViewText}>{data.local}</Text>
-          </View>
-        </View>
-        <Text style={styles.mediumText}>Atividades:</Text>
+        <Text style={styles.mediumText}>Encontro</Text>
+        <ActivityDetails hora={data.encontro.hora} local={data.encontro.local} />
+        <Text style={styles.mediumText}>Despedida</Text>
+        <ActivityDetails hora={data.despedida.hora} local={data.despedida.local} />
+        <Text style={{ ...globalStyles.largeText, ...{ marginBottom: 5 } }}>Atividades</Text>
         <ActivitiesList data={data.atividades} />
       </View>
     );
@@ -36,27 +21,8 @@ export class ActivityBody extends Component {
 }
 
 const styles = StyleSheet.create({
-  details: {
-    marginTop: 20,
-    marginBottom: 15,
-    borderBottomColor: 'rgba(0, 0, 0, 0.12)',
-    borderBottomWidth: 1,
-    borderTopColor: 'rgba(0, 0, 0, 0.12)',
-    borderTopWidth: 1,
-  },
-  iconView: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingVertical: 12,
-    overflow: 'hidden',
-  },
-  iconViewText: {
-    paddingLeft: 10,
-    fontFamily: 'Montserrat',
-    fontSize: 15,
-  },
   mediumText: {
-    fontFamily: 'Montserrat-SemiBold',
+    fontFamily: 'Montserrat',
     fontSize: 26,
   },
 });

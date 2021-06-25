@@ -3,8 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import AtividadesStack from './AtividadesStack';
 import HomeStack from './HomeStack';
-import SobreNósStack from './SobreNósStack';
-import RegulamentoStack from './RegulamentoStack';
+import RecadosStack from './RecadosStack';
 
 const Drawer = createDrawerNavigator();
 
@@ -15,8 +14,7 @@ class Navigator extends Component {
         <Drawer.Navigator initialRouteName='Home'>
           <Drawer.Screen name='Início' component={HomeStack} />
           <Drawer.Screen name='Atividades' component={AtividadesStack} />
-          <Drawer.Screen name='Regulamento' component={RegulamentoStack} />
-          <Drawer.Screen name='Sobre Nós' component={SobreNósStack} />
+          <Drawer.Screen name='Recados' component={RecadosStack} />
         </Drawer.Navigator>
       </NavigationContainer>
     );

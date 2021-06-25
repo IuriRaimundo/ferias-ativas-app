@@ -8,7 +8,7 @@ export class ActivitiesList extends Component {
       <>
         <View style={styles.listWrapper}>
           {data.map((item, index) => (
-            <Text key={index} style={styles.item}>{`\u2022 ${data}`}</Text>
+            <Text key={index} style={styles.item}>{`\u2022 ${item}`}</Text>
           ))}
         </View>
       </>
@@ -18,10 +18,11 @@ export class ActivitiesList extends Component {
 
 const styles = StyleSheet.create({
   listWrapper: {
-    marginTop: 15,
+    marginVertical: 5,
   },
   item: {
-    fontSize: 24,
+    fontSize: 22,
+    marginVertical: 6,
     fontFamily: 'Montserrat',
   },
 });

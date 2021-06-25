@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 
-export default function Header({ navigation }) {
+export default function Header({ navigation, route }) {
   const openMenu = () => {
     navigation.openDrawer();
   };
@@ -13,7 +13,7 @@ export default function Header({ navigation }) {
         <MaterialIcons name='menu' size={28} />
       </TouchableOpacity>
       <View>
-        <Text style={styles.headerText}>Férias Ativas</Text>
+        <Text style={styles.headerText}>{route ? route.name : 'Férias Ativas'}</Text>
       </View>
     </View>
   );

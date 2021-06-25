@@ -5,7 +5,7 @@ import ActivityCard from '../components/ActivityCard';
 
 export class Atividades extends Component {
   render() {
-    const { navigation, route } = this.props;
+    const { navigation } = this.props;
     return (
       <View style={styles.container}>
         <FlatList
@@ -25,7 +25,7 @@ export class Atividades extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#fafafa',
   },
   list: {
     justifyContent: 'center',

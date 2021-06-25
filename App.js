@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import * as Font from 'expo-font';
 import Navigator from './routes/Drawer';
+import { AppContextProvider } from './components/AppContext';
 
 export class App extends Component {
   state = {
@@ -24,7 +25,11 @@ export class App extends Component {
 
   render() {
     if (this.state.fontsLoaded) {
-      return <Navigator />;
+      return (
+        <AppContextProvider>
+          <Navigator />
+        </AppContextProvider>
+      );
     } else {
       return null;
     }

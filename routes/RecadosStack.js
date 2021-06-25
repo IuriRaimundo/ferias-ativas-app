@@ -1,40 +1,38 @@
 import React, { Component } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import Header from '../components/Header';
-import Home from '../screens/Home';
-import Recado from '../screens/Recado';
 import { headerStyle } from '../styles/globalStyles';
+import Recados from '../screens/Recados';
+import Recado from '../screens/Recado';
 
 const Stack = createStackNavigator();
 
-class HomeStack extends Component {
+class RecadosStack extends Component {
   render() {
-    const { navigation } = this.props;
     return (
       <Stack.Navigator
-        initialRouteName='Home'
+        initialRouteName='Recados'
         screenOptions={{
           headerStyle,
         }}
       >
         <Stack.Screen
-          name='Home'
-          options={({ navigation, route }) => {
+          name='Recados'
+          component={Recados}
+          options={({ navigation }) => {
             return { headerTitle: () => <Header navigation={navigation} /> };
           }}
-        >
-          {(props) => <Home {...props} drawerNavigate={navigation} />}
-        </Stack.Screen>
+        />
         <Stack.Screen
-          name='LatestRecado'
+          name='Recado'
+          component={Recado}
           options={({ route }) => {
             return { headerTitle: route.params.titulo };
           }}
-          component={Recado}
-        ></Stack.Screen>
+        />
       </Stack.Navigator>
     );
   }
 }
 
-export default HomeStack;
+export default RecadosStack;
