@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import * as Font from 'expo-font';
 import Navigator from './routes/Drawer';
-import { AppContextProvider } from './components/AppContext';
+import { AppContextProvider } from './utils/AppContext';
 
 export class App extends Component {
   state = {

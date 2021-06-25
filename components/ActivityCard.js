@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, TouchableOpacity, ImageBackground, Text } from 'react-native';
 import Overlay from './Overlay';
+import images from '../assets/images/atividades';
 
 class ActivityCard extends Component {
   constructor({ activity, navigation, overlay }) {
@@ -16,7 +17,8 @@ class ActivityCard extends Component {
   render() {
     return (
       <TouchableOpacity onPress={this.pressHandler}>
-        <ImageBackground source={this.activity.imagem} style={styles.card}>
+        {this.overlay && <Overlay />}
+        <ImageBackground source={images[this.activity.imagem]} style={styles.card}>
           <Text style={styles.cardChildren}>{this.activity.dia}</Text>
           {this.activity.overlay && <Overlay />}
         </ImageBackground>

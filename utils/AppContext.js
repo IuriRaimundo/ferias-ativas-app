@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import recados from '../recados.json'; // TEMP
-import atitividades from '../atividades.json'; // TEMP
-import atividades from '../assets/atividades/atividades';
+import atividades from '../atividades.json'; // TEMP
 
 const AppContext = React.createContext();
 
 class AppContextProvider extends Component {
   state = {
-    recados: {},
-    atividades: {},
+    recados: [],
+    atividades: [],
   };
 
   setRecados = () => {

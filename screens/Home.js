@@ -13,11 +13,12 @@ export class Home extends Component {
 
   render() {
     const { navigation } = this.props;
-    const { recados } = this.context.recados;
+    const { recados } = this.context;
+
     return (
       <View style={styles.container}>
         <ScrollView showsVerticalScrollIndicator={false}>
-          {recados && <LatestRecadoCard data={recados[0]} navigation={navigation} />}
+          {recados.length !== 0 && <LatestRecadoCard data={recados[0]} navigation={navigation} />}
           <Card target='Atividades' image={imagemAtividades} navigation={navigation}>
             <Text style={{ ...globalStyles.largeText, ...styles.text }}>Atividades</Text>
             <Text style={{ ...globalStyles.mediumText, ...styles.text }}>Veja as atividades programadas</Text>

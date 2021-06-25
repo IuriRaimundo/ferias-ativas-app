@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, ScrollView, Image } from 'react-native';
 import ActivityBody from '../components/ActivityBody';
+import images from '../assets/images/atividades';
 
 export class Atividade extends Component {
   render() {
     const { route } = this.props;
     return (
       <View style={{ flex: 1 }}>
-        <Image style={styles.image} source={route.params.imagem} />
+        <Image style={styles.image} source={images[route.params.imagem]} />
         <View style={styles.scrollViewWrapper}>
           <ScrollView contentContainerStyle={styles.body}>
             <ActivityBody data={route.params} />

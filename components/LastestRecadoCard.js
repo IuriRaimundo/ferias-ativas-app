@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     marginVertical: 8,
   },
   recadoWrapper: {
-    borderColor: 'rgba(0, 0, 0, 0.44)',
+    borderColor: 'rgba(0, 0, 0, 0.24)',
     borderBottomWidth: 1,
     borderLeftWidth: 1,
     borderRightWidth: 1,

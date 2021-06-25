@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { ScrollView, ImageBackground, Text } from 'react-native';
-import AppContext from '../components/AppContext';
+import AppContext from '../utils/AppContext';
 import Overlay from '../components/Overlay';
 import RecadoCard from '../components/RecadoCard';
 import data from '../recados.json';

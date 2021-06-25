@@ -1,22 +1,27 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, FlatList } from 'react-native';
-import content from '../assets/atividades/atividades';
+import AppContext from '../utils/AppContext';
 import ActivityCard from '../components/ActivityCard';
 
 export class Atividades extends Component {
+  static contextType = AppContext;
+
   render() {
     const { navigation } = this.props;
+    const { atividades } = this.context;
     return (
       <View style={styles.container}>
-        <FlatList
-          columnWrapperStyle={styles.list}
-          data={content}
-          numColumns={2}
-          keyExtractor={(item) => item.dia}
-          renderItem={({ item }) => {
-            return <ActivityCard activity={item} navigation={navigation} />;
-          }}
-        />
+        {atividades.length !== 0 && (
+          <FlatList
+            columnWrapperStyle={styles.list}
+            data={atividades}
+            numColumns={2}
+            keyExtractor={(item) => item.dia}
+            renderItem={({ item }) => {
+              return <ActivityCard activity={item} navigation={navigation} />;
+            }}
+          />
+        )}
       </View>
     );
   }
