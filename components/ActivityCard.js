@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, TouchableOpacity, ImageBackground, Text } from 'react-native';
 import Overlay from './Overlay';
 import images from '../assets/images/atividades';
+import formatDate from '../utils/formatDate';
 
 class ActivityCard extends Component {
   constructor({ activity, navigation, overlay }) {
@@ -19,7 +20,7 @@ class ActivityCard extends Component {
       <TouchableOpacity onPress={this.pressHandler}>
         {this.overlay && <Overlay />}
         <ImageBackground source={images[this.activity.imagem]} style={styles.card}>
-          <Text style={styles.cardChildren}>{this.activity.dia}</Text>
+          <Text style={styles.cardChildren}>{formatDate(this.activity.dia)}</Text>
           {this.activity.overlay && <Overlay />}
         </ImageBackground>
       </TouchableOpacity>

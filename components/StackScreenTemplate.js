@@ -7,7 +7,7 @@ export class StackScreenTemplate extends Component {
     const { source, children } = this.props;
     return (
       <View style={{ flex: 1 }}>
-        <Image style={styles.image} source={source ? source : images['imagem1']} />
+        <Image style={styles.image} source={source ? source : images['default']} />
         <View style={styles.scrollViewWrapper}>
           <ScrollView contentContainerStyle={styles.body}>{children}</ScrollView>
         </View>

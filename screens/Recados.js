@@ -23,7 +23,7 @@ class Recados extends Component {
         {recados.length > 0 ? (
           <ScrollView style={{ elevation: 10 }} contentContainerStyle={{ padding: 20, justifyContent: 'center' }}>
             {recados.map((recado) => (
-              <RecadoCard data={recado} navigation={navigation} key={recado.id} />
+              <RecadoCard data={recado} navigation={navigation} key={recado.timestamp} />
             ))}
           </ScrollView>
         ) : (

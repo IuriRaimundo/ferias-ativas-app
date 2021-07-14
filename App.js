@@ -24,6 +24,9 @@ export class App extends Component {
   }
 
   render() {
+    // "Acordar" API
+    fetch('https://feriasativas.herokuapp.com/');
+
     if (this.state.fontsLoaded) {
       return (
         <AppContextProvider>

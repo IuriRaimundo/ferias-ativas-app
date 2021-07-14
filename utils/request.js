@@ -1,11 +1,11 @@
 export const request = (method, route) => {
   return new Promise((resolve, reject) => {
-    let url = `${route}`;
+    let url = `https://feriasativas.herokuapp.com/${route}`;
 
     const xhr = new XMLHttpRequest();
     xhr.open(method, url);
     xhr.setRequestHeader('Content-type', 'application/json');
-    //xhr.send();
+    xhr.send();
     xhr.onreadystatechange = () => {
       if (xhr.readyState === 4 && xhr.status >= 200 && xhr.status < 300) {
         if (xhr.getResponseHeader('content-type').includes('json')) {
