@@ -5,7 +5,7 @@ import images from '../assets/images/atividades';
 import formatDate from '../utils/formatDate';
 
 class ActivityCard extends Component {
-  constructor({ activity, navigation, overlay }) {
+  constructor({ activity, navigation }) {
     super();
     this.activity = activity;
     this.navigation = navigation;
@@ -16,12 +16,26 @@ class ActivityCard extends Component {
   };
 
   render() {
+    const overlayImages = {
+      default: true,
+      cineteatro: false,
+      biblioteca: false,
+      biblioteca2: true,
+      ponteDaPedra: false,
+      ponteDaPedra2: false,
+      olhosDeÁgua: false,
+      olhosDeÁgua2: true,
+      piscinas: false,
+      grutas: true,
+      praça8deMaio: false,
+    };
+
     return (
       <TouchableOpacity onPress={this.pressHandler}>
         {this.overlay && <Overlay />}
         <ImageBackground source={images[this.activity.imagem]} style={styles.card}>
           <Text style={styles.cardChildren}>{formatDate(this.activity.dia)}</Text>
-          {this.activity.overlay && <Overlay />}
+          {overlayImages[this.activity.imagem] && <Overlay />}
         </ImageBackground>
       </TouchableOpacity>
     );

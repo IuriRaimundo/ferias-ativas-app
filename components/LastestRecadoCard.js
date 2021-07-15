@@ -36,7 +36,7 @@ class LatestRecadoCard extends Component {
                 color: '#fff',
               }}
             >
-              Recado mais recente
+              Último recado
             </Text>
           </View>
           <View style={styles.recadoWrapper}>

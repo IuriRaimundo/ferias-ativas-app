@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     width: 1000,
     height: 1000,
-    backgroundColor: 'rgba(0, 0, 0, 0.4)',
+    backgroundColor: 'rgba(0, 0, 0, 0.3)',
     elevation: 1,
   },
 });
