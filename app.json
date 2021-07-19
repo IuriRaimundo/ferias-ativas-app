@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "ferias-ativas-app",
-    "slug": "ferias-ativas-app",
+    "name": "Férias Ativas",
+    "slug": "ferias-ativas",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -23,7 +23,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.iuriraimundo1.feriasativas"
     },
     "web": {
       "favicon": "./assets/favicon.png"
